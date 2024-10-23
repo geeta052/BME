@@ -3,6 +3,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Signup from './signup/Signup';
 import Login from './login/Login';
 import AccountTypeRegistration from './AccountTypeRegistration/AccountTypeRegistration';
+import StudentLogin from './StudentLogin/StudentLoginForm'; 
 import './App.css';
 
 const App = () => {
@@ -24,6 +25,10 @@ const App = () => {
         </div>
       ),
     },
+    {
+      path: "/student-login", 
+      element: <StudentLogin />, 
+    }
   ]);
 
   return (
