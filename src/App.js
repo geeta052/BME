@@ -3,13 +3,20 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Signup from './signup/Signup';
 import Login from './login/Login';
 import AccountTypeRegistration from './AccountTypeRegistration/AccountTypeRegistration';
-import StudentLogin from './StudentLogin/StudentLoginForm'; 
+import StudentLogin from './StudentLogin/StudentLoginForm';
+import InstituteLogin from './InstituteLogin/InstituteLogin';
+import AdminLogin from './AdminLogin/AdminLogin'; 
+import HomePage from './HomePage/HomePage';
 import './App.css';
 
 const App = () => {
   const route = createBrowserRouter([
     {
       path: "/",
+      element: <HomePage />, 
+    },
+    {
+      path: "/signup",
       element: <Signup />,
     },
     {
@@ -18,16 +25,19 @@ const App = () => {
     },
     {
       path: "/account-type",
-      element: (
-        <div>
-          <h1>Welcome to BookMyEvent</h1>
-          <AccountTypeRegistration />
-        </div>
-      ),
+      element: <AccountTypeRegistration />
     },
     {
-      path: "/student-login", 
-      element: <StudentLogin />, 
+      path: "/student-login",
+      element: <StudentLogin />,
+    },
+    {
+      path: "/institute-login",
+      element: <InstituteLogin />, 
+    },
+    {
+      path: "/admin-login",
+      element: <AdminLogin />, 
     }
   ]);
 

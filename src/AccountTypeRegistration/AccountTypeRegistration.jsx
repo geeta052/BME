@@ -1,58 +1,57 @@
-// AccountTypeRegistration.js
-
 import React, { useState } from 'react';
-import './AccountTypeRegistration.css'; // Import the CSS file
+import './AccountTypeRegistration.css';
 
 const AccountTypeRegistration = () => {
     const [accountType, setAccountType] = useState('');
 
-    const handleAccountTypeChange = (e) => {
-        setAccountType(e.target.value);
+    const handleAccountTypeChange = (event) => {
+        setAccountType(event.target.value);
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // Here you can handle the registration logic (e.g., sending data to API)
+    const handleSubmit = (event) => {
+        event.preventDefault();
         alert(`Selected Account Type: ${accountType}`);
     };
 
     return (
         <div className="registration-container">
-            <h2>Registration - Account Type</h2>
+            <h1>Account Type Registration</h1>
             <form onSubmit={handleSubmit}>
-                <div className="radio-group">
-                    <label className="radio-label">
+                <div className="account-type-options">
+                    <label className={accountType === 'Student' ? 'selected' : ''}>
                         <input
                             type="radio"
                             value="Student"
                             checked={accountType === 'Student'}
                             onChange={handleAccountTypeChange}
-                            className="radio-input"
                         />
-                        <span className="radio-custom">Student</span>
+                        Student
+                        {accountType === 'Student' && <span className="checkmark">✔</span>}
                     </label>
-                    <label className="radio-label">
+                    <label className={accountType === 'Admin' ? 'selected' : ''}>
                         <input
                             type="radio"
                             value="Admin"
                             checked={accountType === 'Admin'}
                             onChange={handleAccountTypeChange}
-                            className="radio-input"
                         />
-                        <span className="radio-custom">Admin</span>
+                        Admin
+                        {accountType === 'Admin' && <span className="checkmark">✔</span>}
                     </label>
-                    <label className="radio-label">
+                    <label className={accountType === 'Institute' ? 'selected' : ''}>
                         <input
                             type="radio"
                             value="Institute"
                             checked={accountType === 'Institute'}
                             onChange={handleAccountTypeChange}
-                            className="radio-input"
                         />
-                        <span className="radio-custom">Institute</span>
+                        Institute
+                        {accountType === 'Institute' && <span className="checkmark">✔</span>}
                     </label>
                 </div>
-                <button type="submit" className="continue-button">Continue</button>
+                <button type="submit" className="submit-button" disabled={!accountType}>
+                    Register
+                </button>
             </form>
         </div>
     );
